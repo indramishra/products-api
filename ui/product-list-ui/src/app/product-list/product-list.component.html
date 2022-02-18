@@ -1,0 +1,54 @@
+
+  
+  <div class="container-fluid">
+  
+    <div class="row">
+  
+      <!-- filter sidebar -->
+      <app-product-filter [productList]="filteredList" (filteredList)="applyCategoryFilter($event)"></app-product-filter>
+  
+      <div class="input-group">
+        <div class="row">
+            <div class="col-sm-6"> 
+                <input #search type="search" class="form-control search-btn" placeholder="Search Products" aria-label="Search" aria-describedby="search-addon" style="width: auto;margin-left: 12px;" />  
+            </div>
+            <div class="col-sm-6"> 
+                <button type="button" class="btn btn-outline-primary" (click)="nameFilter(search)" style="margin-left: 20px;">search</button>
+            </div>
+        
+      </div>
+      </div>
+      <!-- table container -->
+      <div class="col-sm-9">
+        
+        <table class="table table-striped table-hover table-responsive">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Quantity</th>
+              <th >Price</th>
+              <th>Category</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let list of productList">
+              <td class="valign-middle" data-label="Title">
+                <a href="#">{{list.productName}}</a>
+              </td>
+              <td class="valign-middle" data-label="Artist">
+                {{list.productQuantity}}
+              </td>
+              <td class="valign-middle" data-label="Price">
+                {{list.productPrice | currency: 'INR': 'code'}}
+              </td>
+              <td class="valign-middle">
+                {{list.category}}
+              </td>
+            </tr>
+           
+          </tbody>
+        </table>
+      </div>
+  
+    </div>
+  

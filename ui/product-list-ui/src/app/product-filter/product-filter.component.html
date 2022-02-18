@@ -1,0 +1,25 @@
+
+<div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">×</a>
+    
+        
+           <h4>Category</h4> <i class="bi bi-caret-down-fill"></i>
+           
+    
+    <div *ngFor="let cat of categories; let i of index;">
+        <div class="form-check">
+    <ul >
+        <input
+                  class="form-check-input"
+                  type="checkbox"
+                  (change)="categoryFilter(cat)"
+                />&nbsp;<span>{{cat}}</span>
+        <!-- <input name="optionsCheckboxes" type="checkbox" value="{{cat.name}}" (click)="categoryFilter(cat.code)" [(ngModel)]="cat.selected">&nbsp;<span>{{cat.name}}</span> -->
+    </ul>
+</div>
+
+</div>
+  </div>
+  <div id="main">
+    <button class="openbtn" (click)="openNav()"><span *ngIf="showFilterText"><i class="glyphicon glyphicon-filter" style="color: green;"></i> filters</span> </button>  
+</div>
